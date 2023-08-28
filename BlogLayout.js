@@ -14,6 +14,12 @@ const BlogLayout = () => {
           <li>
             <Link to="/Users">Users</Link>
           </li>
+          <li>
+            <Link to="/Photos">Photos</Link>
+          </li>
+          <li>
+            <Link to="/Albums">Albums</Link>
+          </li>
         </ul>
       </nav>
       <div className="m-10">
@@ -24,4 +30,4 @@ const BlogLayout = () => {
   );
 };
 
-export default WorkoutLayout;
+export default BlogLayout;

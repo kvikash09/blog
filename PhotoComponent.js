@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function PhotoComponent() {
-  const [photoData, setPhotoData] = useState();
+  const [photoData, setPhotoData] = useState([]);
 
   useEffect(() => {
     axios
