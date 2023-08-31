@@ -1,33 +1,32 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const BlogLayout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/Posts">Posts</Link>
-          </li>
-          <li>
-            <Link to="/Users">Users</Link>
-          </li>
-          <li>
-            <Link to="/Album">Album Page</Link>
-          </li>
-          <li>
-            <Link to="/Photos">Photos</Link>
-          </li>
-          <li>
-            <Link to="/Albums">Albums</Link>
-          </li>
-        </ul>
-      </nav>
-      <div className="m-10">
-        <h1>Blog Post</h1>
-      </div>
+      <Navbar bg="info" expand="lg" className="mb-lg-5">
+        <LinkContainer to="/">
+          <Navbar.Brand>Blog Post</Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <LinkContainer to="/users">
+              <Nav.Link>Users</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/posts">
+              <Nav.Link>Posts</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/photos">
+              <Nav.Link>Photos</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/albums">
+              <Nav.Link>Albums</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
       <Outlet />
     </>
   );

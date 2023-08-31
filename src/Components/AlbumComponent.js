@@ -24,15 +24,18 @@ function AlbumComponent() {
       <h2>Albums</h2>
       <div className="album">
         {albums.map((album) => (
-          <Card style={{ width: "18rem" }} className="shadow-lg">
-            <Card.Body>
-              <Card.Title>{album.title}</Card.Title>
-              <Card.Text>
-                <Link to={`/album/${album.id}`}>{album.title}</Link>
-              </Card.Text>
-              <Button variant="primary">Click</Button>
-            </Card.Body>
-          </Card>
+          <div key={album.id}>
+            <Card style={{ width: "18rem" }} className="shadow-lg">
+              <Card.Body>
+                <Card.Title>{album.title}</Card.Title>
+                <Card.Text>
+                  <Link to={`/album/${album.id}`}>
+                    <Button variant="primary">Open the Album</Button>
+                  </Link>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
         ))}
       </div>
     </>

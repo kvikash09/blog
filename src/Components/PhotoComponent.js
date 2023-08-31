@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 
 function PhotoComponent() {
@@ -28,16 +27,28 @@ function PhotoComponent() {
   return (
     <>
       {photoData.map((photo) => (
-        <Container>
-          <Row>
-            <Col xs={6} md={4}>
-              <li key={photo.id}>
-                <Image src={photo.thumbnailUrl} rounded alt={photo.title} />
-                {photo.title}
-              </li>
+        <Row xs={1} md={2} className="g-5 mb-lg-5">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <Col key={idx}>
+              <div key={photo.id}>
+                <Card>
+                  <Card.Img
+                    variant="top"
+                    src={photo.thumbnailUrl}
+                    rounded
+                    alt={photo.title}
+                  />
+                  <Card.Body>
+                    <Card.Title>{photo.title}</Card.Title>
+                    <Card.Text>
+                      <div>Url: {photo.url}</div>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
             </Col>
-          </Row>
-        </Container>
+          ))}
+        </Row>
       ))}
     </>
   );
